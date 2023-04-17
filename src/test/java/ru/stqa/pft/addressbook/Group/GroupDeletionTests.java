@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.Group;
 
 import org.testng.annotations.*;
+import ru.stqa.pft.addressbook.TestBase;
 
 public class GroupDeletionTests extends TestBase {
 
