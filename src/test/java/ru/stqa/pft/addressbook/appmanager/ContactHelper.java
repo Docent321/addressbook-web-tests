@@ -28,6 +28,7 @@ public class ContactHelper extends BaseHelper{
 
     public void deletedSelectContact() {
         click(By.xpath("//input[@value='Delete']"));
+        wd.switchTo().alert().accept();
     }
 
     public void selectContact() {
