@@ -3,12 +3,9 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.Browser;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.openqa.selenium.remote.Browser.CHROME;
-import static org.openqa.selenium.remote.Browser.FIREFOX;
 
 public class ApplicationManager {
     WebDriver wd;
@@ -17,17 +14,18 @@ public class ApplicationManager {
     private NavigationHelper navigationHelper;
     private ContactHelper contactHelper;
     private GroupHelper groupHelper;
-    private Browser browser;
+    private String browser;
 
-    public ApplicationManager(Browser browser) {
-        this.browser = browser;
+    public ApplicationManager(String browser) {
+        this.browser = String.valueOf(browser);
     }
 
+
     public void init() {
-        if (browser == CHROME){
+        if (browser.equals("CHROME")){
             wd = new ChromeDriver();
         }
-        else if (browser == FIREFOX) {
+        else if (browser.equals("FIREFOX")) {
             wd = new FirefoxDriver();
         }
 
