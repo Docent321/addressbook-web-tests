@@ -3,14 +3,14 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-    private final String id;
+    private int id;
     private final String firstname;
     private final String lastname;
     private final String address;
     private final String phone;
     private final String email;
 
-    public ContactData(String id, String firstname, String lastname, String address, String phone, String email) {
+    public ContactData(int id, String firstname, String lastname, String address, String phone, String email) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -21,7 +21,7 @@ public class ContactData {
 
 
     public ContactData(String firstname, String lastname, String address, String phone, String email) {
-        this.id = null;
+        this.id = 0;
         this.firstname = firstname;
         this.lastname = lastname;
         this.address = address;
@@ -29,7 +29,7 @@ public class ContactData {
         this.email = email;
     }
 
-    public String getId() { return id; }
+    public int getId() { return id; }
 
     public String getFirstname() {
         return firstname;
@@ -51,13 +51,16 @@ public class ContactData {
         return email;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return Objects.equals(id, that.id) && Objects.equals(firstname, that.firstname) && Objects.equals(lastname, that.lastname);
+        return id == that.id && Objects.equals(firstname, that.firstname) && Objects.equals(lastname, that.lastname);
     }
 
     @Override
