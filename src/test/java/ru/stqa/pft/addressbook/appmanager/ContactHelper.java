@@ -67,27 +67,6 @@ public class ContactHelper extends BaseHelper{
         return wd.findElements(By.name("entry")).size();
     }
 
-
-
-
-  /*
-    public List<ContactData> getContactList() {
-        List<ContactData> contacts = new ArrayList<ContactData>();
-        List<WebElement> elements = wd.findElements(By.name("selected[]"));
-        for (WebElement element : elements) {
-            //String lastName = element.getText();
-            //String firstName = element.getText();
-            String lastName = element.findElement(By.xpath(".//td[2]")).getText();
-            String firstName = element.findElement(By.xpath(".//td[3]")).getText();
-            String id = element.findElement(By.tagName("input")).getAttribute("value");
-            ContactData contact = new ContactData (id, lastName, firstName, null, null, null);
-            contacts.add(contact);
-        }
-        return contacts;
-    }
-
-
-*/
     public List<ContactData> getContactList() {
         List<ContactData> contacts = new ArrayList<ContactData>();
         List<WebElement> elements = wd.findElements(By.name("entry"));
