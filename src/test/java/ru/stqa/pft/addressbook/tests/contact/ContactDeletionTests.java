@@ -4,9 +4,11 @@ package ru.stqa.pft.addressbook.tests.contact;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.tests.TestBase;
 
 import java.util.List;
+import java.util.Set;
 
 
 public class ContactDeletionTests extends TestBase {
@@ -24,14 +26,14 @@ public class ContactDeletionTests extends TestBase {
 
     @Test
     public void testContactDeletionTests() {
-        List<ContactData> before = app.contact().list();
-        int index = before.size() - 1;
-        app.contact().delete(index);
+        Set<ContactData> before = app.contact().all();
+        ContactData deleteContact  = before.iterator().next();
+        app.contact().delete(deleteContact);
         app.goTo().contactPage();
-        List<ContactData> after = app.contact().list();
+        Set<ContactData> after = app.contact().all();
         Assert.assertEquals(after.size(), before.size() - 1);
 
-        before.remove(index);
+        before.remove(deleteContact);
         Assert.assertEquals(after, before);
     }
 

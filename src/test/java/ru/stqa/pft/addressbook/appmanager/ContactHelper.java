@@ -41,6 +41,11 @@ public class ContactHelper extends BaseHelper{
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
+
+    public void selectContactById(int id) {
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+    }
+
     public void initContactModification(int index) {
         click(By.xpath("//tr["+index+"]/td[8]/a/img"));
     }
@@ -78,6 +83,11 @@ public class ContactHelper extends BaseHelper{
     }
 
 
+    public void delete(ContactData Contact) {
+        selectContactById(Contact.getId());
+        deletedSelectContact();
+    }
+
     public int getContactCount() {
         return wd.findElements(By.name("entry")).size();
     }
@@ -104,4 +114,5 @@ public class ContactHelper extends BaseHelper{
         }
         return contacts;
     }
+
 }
