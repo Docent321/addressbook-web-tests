@@ -1,11 +1,11 @@
 package ru.stqa.pft.addressbook.tests.group;
 
-import org.hamcrest.CoreMatchers;
 import org.testng.annotations.*;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 import ru.stqa.pft.addressbook.tests.TestBase;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 
@@ -26,6 +26,6 @@ public class GroupDeletionTests extends TestBase {
     app.group().delete(deleteGroup);
     Groups after = app.group().all();
     assertEquals(after.size(), before.size() - 1);
-    assertThat(after, CoreMatchers.equalTo(before.without(deleteGroup)));
+    assertThat(after, equalTo(before.without(deleteGroup)));
   }
 }
