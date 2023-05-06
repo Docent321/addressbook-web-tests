@@ -9,4 +9,5 @@ repositories {
 dependencies {
     implementation group: 'org.testng', name: 'testng', version: '7.7.1'
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.8.3'
+    implementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
 }
