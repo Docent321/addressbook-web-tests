@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,14 +55,14 @@ public class ContactHelper extends BaseHelper{
         return isElementPresent(By.name("selected[]"));
     }
 
-    public void createContact(ContactData Contact) {
+    public void create(ContactData Contact) {
         initContactCreation();
         fillContactForm(Contact);
         submitContactCreation();
         returnToContactPage();
     }
 
-    public void modifyContact(int index, ContactData contact) {
+    public void modify(int index, ContactData contact) {
         initContactModification(index + 2);
         fillContactForm(contact);
         submitContactModification();
@@ -71,17 +70,22 @@ public class ContactHelper extends BaseHelper{
     }
 
 
+    public void delete(int index) {
+        selectContact(index);
+        deletedSelectContact();
+    }
+
+
     public int getContactCount() {
         return wd.findElements(By.name("entry")).size();
     }
 
-    public List<ContactData> getContactList() {
-        List<ContactData> contacts = new ArrayList<ContactData>();
+    public List<ContactData> list() {
+        List<ContactData> contacts = new ArrayList<>();
         List<WebElement> elements = wd.findElements(By.name("entry"));
         for (WebElement element : elements) {
             String lastName = element.findElement(By.xpath(".//td[2]")).getText();
             String firstName = element.findElement(By.xpath(".//td[3]")).getText();
-            //int id = Integer.parseInt(element.findElement(By.xpath("//tr[4]/td/input")).getAttribute("value"));
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             ContactData contact = new ContactData (id, lastName, firstName, null, null, null);
             contacts.add(contact);
