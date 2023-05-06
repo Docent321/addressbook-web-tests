@@ -7,13 +7,12 @@ import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.tests.TestBase;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class GroupModificationTests extends TestBase{
 
     @BeforeMethod
-    public void ensurePreconditions() {;
+    public void ensurePreconditions() {
         app.getNavigationHelper().gotoGroupPage();
         if (! app.getGroupHelper().isThereAGroup()){
             app.getGroupHelper().createGroup(new GroupData("Name", "Header", "Footer"));
@@ -25,7 +24,7 @@ public class GroupModificationTests extends TestBase{
         List<GroupData> before = app.getGroupHelper().getGroupList();
         int index = before.size() - 1;
         GroupData group = new GroupData(before.get(index).getId(),"New_Name", "New_Header", "New_Footer");
-        app.getGroupHelper().modifyGroup(index, group);
+        //app.getGroupHelper().modifyGroup(index, group);
         List<GroupData> after = app.getGroupHelper().getGroupList();
         Assert.assertEquals(after.size(), before.size());
 

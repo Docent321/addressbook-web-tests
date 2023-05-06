@@ -11,13 +11,16 @@ import java.util.List;
 
 public class ContactDeletionTests extends TestBase {
 
-
-    @Test
-    public void testContactDeletionTests() {
+    @BeforeMethod
+    public void ensurePreconditions() {
         app.getNavigationHelper().gotoContactPage();
         if (! app.getContactHelper().isThereAContact()){
             app.getContactHelper().createContact(new ContactData("asd2", "asd1", "cbndfgsdfg wwert1", "1231231233", "asd1@sa.asd"));
         }
+    }
+
+    @Test
+    public void testContactDeletionTests() {
         List<ContactData> before = app.getContactHelper().getContactList();
         app.getContactHelper().selectContact(before.size() - 1);
         app.getContactHelper().deletedSelectContact();
