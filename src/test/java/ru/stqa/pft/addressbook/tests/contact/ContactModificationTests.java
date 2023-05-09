@@ -31,6 +31,7 @@ public class ContactModificationTests extends TestBase {
                 .withId(modifyContact.getId())
                 .withFirstname("asd4").withLastname("asd4")
                 .withAddress("cbndfgsdfg").withPhone("1231231233")
+                .withMobil("321 - 4").withWork("08778")
                 .withEmail("asd1@sa.asd");
         app.contact().modify(contact);
         Contacts after = app.contact().all();
