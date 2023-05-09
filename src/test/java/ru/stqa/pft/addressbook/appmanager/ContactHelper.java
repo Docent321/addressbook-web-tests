@@ -106,12 +106,13 @@ public class ContactHelper extends BaseHelper{
         String home = wd.findElement(By.name("home")).getAttribute("value");
         String mobil = wd.findElement(By.name("mobile")).getAttribute("value");
         String work = wd.findElement(By.name("work")).getAttribute("value");
+        String address = wd.findElement(By.name("address")).getAttribute("value");
         String email1 = wd.findElement(By.name("email")).getAttribute("value");
         String email2 = wd.findElement(By.name("email2")).getAttribute("value");
         String email3 = wd.findElement(By.name("email3")).getAttribute("value");
         wd.navigate().back();
         return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname).
-                withPhone(home).withMobil(mobil).withWork(work).withEmail1(email1)
+                withPhone(home).withMobil(mobil).withWork(work).withAddress(address).withEmail1(email1)
                 .withEmail2(email2).withEmail3(email3);
     }
 

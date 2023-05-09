@@ -21,7 +21,8 @@ public class ContactPhoneTest extends TestBase {
                     .withFirstname("asd4").withLastname("asd4")
                     .withAddress("cbndfgsdfg").withPhone("1231231233")
                     .withMobil("321 - 4").withWork("08778")
-                    .withEmail1("asd1@sa.asd"));
+                    .withEmail1("asd1@sa.asd").withEmail2("asd2@sa.asd")
+                    .withEmail3("asd3@sa.asd"));
         }
     }
 
@@ -33,6 +34,7 @@ public class ContactPhoneTest extends TestBase {
 
         assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFormEditForm)));
         assertThat(contact.getAllEmails(), equalTo(mergeEmail(contactInfoFormEditForm)));
+        assertThat(contact.getAddress(), equalTo(contactInfoFormEditForm.getAddress()));
     }
 
 
@@ -42,8 +44,6 @@ public class ContactPhoneTest extends TestBase {
                 .map(ContactPhoneTest::cleaned)
                 .collect(Collectors.joining("\n"));
     }
-
-
 
     private String mergeEmail(ContactData contact) {
         return Arrays.asList(contact.getEmail1(), contact.getEmail2(), contact.getEmail3())
