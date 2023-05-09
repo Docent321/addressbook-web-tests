@@ -20,7 +20,8 @@ public class ContactCreationTests extends TestBase {
             .withFirstname("asd4").withLastname("asd4")
             .withAddress("cbndfgsdfg").withPhone("1231231233")
             .withMobil("321 - 4").withWork("08778")
-            .withEmail("asd1@sa.asd");
+            .withEmail1("asd1@sa.asd").withEmail2("asd2@sa.asd")
+            .withEmail3("asd3@sa.asd");
     app.contact().create(contact);
     Contacts after = app.contact().all();
     assertEquals(after.size(), before.size() + 1);
