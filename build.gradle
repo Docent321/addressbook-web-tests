@@ -11,4 +11,5 @@ dependencies {
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.8.3'
     implementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
     implementation group: 'com.beust', name: 'jcommander', version: '1.82'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
 }
