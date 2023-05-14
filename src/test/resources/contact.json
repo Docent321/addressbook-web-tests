@@ -1,0 +1,13 @@
+[
+  {
+    "firstname": "testName 0",
+    "lastname": "testLastName 0",
+    "address": "Address0",
+    "homePhone": "5555550",
+    "mobilPhone": "+(7999)8885540",
+    "workPhone": "9-876-54320",
+    "email1": "test0@yandex.ru ",
+    "email2": "123-test0-123@gmail.com",
+    "email3": "dot.dot0@email.ru"
+  }
+]
