@@ -37,12 +37,11 @@ public class HbConnectionTest {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         List<GroupData> result = session.createQuery( "from GroupData" ).list();
-        session.close();
-        session.getTransaction().commit();
 
         for ( GroupData group : result ) {
             System.out.println(group);
         }
-
+        session.getTransaction().commit();
+        session.close();
     }
 }
