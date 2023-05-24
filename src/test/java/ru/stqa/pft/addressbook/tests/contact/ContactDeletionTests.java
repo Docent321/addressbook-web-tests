@@ -17,7 +17,7 @@ public class ContactDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         app.goTo().contactPage();
-        if (app.contact().all().size() == 0){
+        if (app.db().contacts().size() == 0){
             File photo = new File("src/test/resources/icon.png");
             app.contact().create(new ContactData()
                     .withFirstname("F_name").withLastname("L_name")

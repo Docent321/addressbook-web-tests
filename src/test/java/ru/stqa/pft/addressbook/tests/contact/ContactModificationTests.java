@@ -6,6 +6,8 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.tests.TestBase;
 
+import java.io.File;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
@@ -15,12 +17,14 @@ public class ContactModificationTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         app.goTo().contactPage();
-        if (app.contact().all().size() == 0){
+        if (app.db().contacts().size() == 0){
+            File photo = new File("src/test/resources/icon.png");
             app.contact().create(new ContactData()
-                    .withFirstname("asd4").withLastname("asd4")
+                    .withFirstname("F_name").withLastname("L_name")
                     .withAddress("cbndfgsdfg").withPhone("1231231233")
+                    .withMobil("321 - 4").withWork("08778")
                     .withEmail1("asd1@sa.asd").withEmail2("asd2@sa.asd")
-                    .withEmail3("asd3@sa.asd"));
+                    .withEmail3("asd3@sa.asd").withPhoto(photo));
         }
     }
 
@@ -28,13 +32,14 @@ public class ContactModificationTests extends TestBase {
     public void testContactModification(){
         Contacts before = app.db().contacts();
         ContactData modifyContact  = before.iterator().next();
+        File photo = new File("src/test/resources/icon.png");
         ContactData contact = new ContactData()
                 .withId(modifyContact.getId())
                 .withFirstname("asd4").withLastname("asd4")
                 .withAddress("cbndfgsdfg").withPhone("1231231233")
                 .withMobil("321 - 4").withWork("08778")
                 .withEmail1("asd1@sa.asd").withEmail2("asd2@sa.asd")
-                .withEmail3("asd3@sa.asd");
+                .withEmail3("asd3@sa.asd").withPhoto(photo);
         app.contact().modify(contact);
         Contacts after = app.db().contacts();
         assertEquals(before.size(), after.size());
