@@ -72,6 +72,10 @@ public class GroupData {
         return this;
     }
 
+    public void setContacts(Set<ContactData> contacts) {
+        this.contacts = contacts;
+    }
+
     @Override
     public String toString() {
         return "GroupData{" +
