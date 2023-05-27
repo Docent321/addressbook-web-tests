@@ -63,12 +63,7 @@ public class AddContactToGroupTests extends TestBase {
 
         Groups afterLinkedGroup = app.db().contacts().stream().iterator().next().getGroups();
         System.out.println("Группы связанные после " + afterLinkedGroup);
-
-        System.out.println(beforeContact);
-        System.out.println(afterContact);
-
-        System.out.println(beforeLinkedGroup);
-        System.out.println(afterLinkedGroup);
+        System.out.println("Группы связанные до " + beforeLinkedGroup);
 
         System.out.println(beforeGroup);
         System.out.println(afterGroup);
