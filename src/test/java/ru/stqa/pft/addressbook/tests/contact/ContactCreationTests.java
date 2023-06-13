@@ -38,6 +38,7 @@ public class ContactCreationTests extends TestBase {
   }
 
 
+
   @Test (dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) {
     app.goTo().contactPage();
